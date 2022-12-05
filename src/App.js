@@ -1,10 +1,19 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { FaRegBell, FaBars, FaPlus } from "react-icons/fa";
+import Homepage from './pages/Homepage';
 import './App.css';
+import Dashboard from './pages/Dashboard';
+import Sidebarcollapse from './components/dashboard/sidebar/Sidebarcollapse';
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/collapes" element={<Sidebarcollapse />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
