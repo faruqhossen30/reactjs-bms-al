@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { FaRegBell, FaBars, FaPlus, FaHome, FaPlusCircle, FaGreaterThan, FaRegCircle, FaRegArrowAltCircleDown } from "react-icons/fa";
-import Collapsible from 'react-collapsible';
+import { FaRegBell, FaBars, FaPlus, FaHome, FaPlusCircle, FaGreaterThan, FaRegCircle, FaRegArrowAltCircleDown, FaBuffer, FaMoneyCheck, FaGamepad, FaMoneyCheckAlt, FaCommentDollar, FaRegMoneyBillAlt, FaCubes, FaUsers, FaHeadset, FaCommentsDollar, FaInfoCircle, FaCopy, FaCog, FaSignOutAlt } from "react-icons/fa";
 import CollapsItem from './CollapsItem';
 
 
@@ -13,61 +12,128 @@ const Sidebar = () => {
     }
 
     return (
-        <aside className='bg-gray-800 hidden md:block md:col-span-3'>
-            <div className='bg-gray-100 py-2 text-center'>
+        <aside className='bg-gray-800 hidden md:block md:col-span-3 lg:col-span-2'>
+            <div className='sticky top-0 z-50 bg-gray-100 py-2 text-center'>
                 <Link className='font-semibold' to='/'>Net T20</Link>
             </div>
             <div className='py-4 text-gray-300 font-semibold'>
                 <ul className=''>
                     <li className=''>
                         <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
-                            <FaHome />
+                            <FaBuffer />
                             <span>Dashboard</span>
                         </Link>
                     </li>
                     <li className=''>
                         <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
-                            <FaHome />
-                            <span>Chat</span>
+                            <FaMoneyCheck />
+                            <span>Balance</span>
+                        </Link>
+                    </li>
+                    <li className=''>
+                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                            <FaGamepad />
+                            <span>Betting</span>
                         </Link>
                     </li>
                     <li className=''>                        
-                        <CollapsItem title="On Test" items={[
+                        <CollapsItem title="Bet Information" icon={<FaInfoCircle />} items={[
                             {
                                 'id':1,
-                                'title':'all',
+                                'title':'Match',
                                 'link':'/Create',
                             },
                             {
                                 'id':2,
-                                'title':'Create',
+                                'title':'Question',
                                 'link':'/Create',
                             },
                             {
                                 'id':3,
-                                'title':'List',
+                                'title':'Option',
                                 'link':'/Create',
                             }
                         ]} />
                     </li>
+                    <li className=''>
+                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                            <FaMoneyCheckAlt />
+                            <span>Transction</span>
+                        </Link>
+                    </li>
+                    <li className=''>
+                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                            <FaCommentDollar />
+                            <span>Deposite</span>
+                        </Link>
+                    </li>
+                    <li className=''>
+                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                            <FaRegBell />
+                            <span>Notification</span>
+                        </Link>
+                    </li>
+                    <li className=''>
+                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                            <FaRegMoneyBillAlt />
+                            <span>Withdraw</span>
+                        </Link>
+                    </li>
+                    <li className=''>
+                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                            <FaCubes />
+                            <span>Clubs</span>
+                        </Link>
+                    </li>
                     <li className=''>                        
-                        <CollapsItem title="Category" items={[
+                        <CollapsItem title="Users" icon={<FaUsers />} items={[
                             {
                                 'id':1,
-                                'title':'all',
+                                'title':'All Users',
                                 'link':'/Create',
                             },
                             {
                                 'id':2,
-                                'title':'Create',
+                                'title':'Admins',
                                 'link':'/Create',
                             },
                             {
                                 'id':3,
-                                'title':'List',
+                                'title':'Roles',
                                 'link':'/Create',
                             }
                         ]} />
+                    </li>
+
+                    <li className=''>
+                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                            <FaHeadset />
+                            <span>Complains</span>
+                        </Link>
+                    </li>
+                    <li className=''>
+                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                            <FaCommentsDollar />
+                            <span>Balance Transfer</span>
+                        </Link>
+                    </li>
+                    <li className=''>
+                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                            <FaCopy />
+                            <span>Backup</span>
+                        </Link>
+                    </li>
+                    <li className=''>
+                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                            <FaCog />
+                            <span>Settings</span>
+                        </Link>
+                    </li>
+                    <li className=''>
+                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                            <FaSignOutAlt />
+                            <span>Logout</span>
+                        </Link>
                     </li>
                 </ul>
             </div>
