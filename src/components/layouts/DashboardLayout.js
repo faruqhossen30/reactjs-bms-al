@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { FaRegBell, FaBars, FaPlus, FaHome, FaPlusCircle } from "react-icons/fa";
-import Sidebar from '../components/dashboard/sidebar/Sidebar';
-import Sidebarcollapse from '../components/dashboard/sidebar/Sidebarcollapse';
+import Sidebar from '../../components/dashboard/sidebar/Sidebar';
+import Sidebarcollapse from '../../components/dashboard/sidebar/Sidebarcollapse';
+import DashboardRoute from '../../routes/DashboardRoute';
 
-const Dashboard = () => {
+const DashboardLayout = ({children}) => {
   const [isToggle, setIsToggle] = useState(true);
   const [sidebarToggle, setSidebarToggle] = useState(true);
   const toggleClass = () => {
@@ -13,18 +14,15 @@ const Dashboard = () => {
   const toggleSidebar = () => {
     setSidebarToggle(!sidebarToggle);
   };
-
-  // console.log(sidebarToggle);
-
   return (
     <>
       <Sidebarcollapse sidebarToggle={sidebarToggle} toggleSidebar={toggleSidebar} />
-      <div className='grid grid-cols-12'>
+      <div className='grid grid-cols-12 bg-white'>
         {/* className='bg-gray-800 hidden md:block md:col-span-3' */}
         <Sidebar />
         {/* className='bg-gray-300 col-span-12 md:col-span-9' */}
-        <main className='md:relative bg-gray-300 col-span-12 md:col-span-9 lg:col-span-10'>
-          <nav className='sticky top-0 z-50 flex justify-between items-center px-3 py-1 text-gray-900 bg-white shadow-md'>
+        <main className='md:relative bg-gray-100 col-span-12 md:col-span-9 lg:col-span-10'>
+          <nav className='sticky top-0 z-10 flex justify-between items-center px-3 py-1 text-gray-900 bg-white shadow-md'>
             {/* Left */}
             <div className='flex items-center'>
               <div className='cursor-pointer md:hidden'>
@@ -67,6 +65,9 @@ const Dashboard = () => {
               </div>
             </div>
           </nav>
+          <div className='p-4'>
+            {children}
+          </div>
           <footer className='absolute inset-x-0 bottom-0 bg-white shadow-inner p-2 text-center text-sm text-gray-600'>
             <p>Copyright © 2022</p>
           </footer>
@@ -76,4 +77,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default DashboardLayout

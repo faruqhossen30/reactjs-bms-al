@@ -13,27 +13,27 @@ const Sidebar = () => {
 
     return (
         <aside className='bg-gray-800 hidden md:block md:col-span-3 lg:col-span-2'>
-            <div className='sticky top-0 z-50 bg-gray-100 py-2 text-center'>
-                <Link className='font-semibold' to='/'>Net T20</Link>
+            <div className='sticky top-0 z-10 bg-gray-100 py-2 text-center'>
+                <Link className='font-semibold' to='/admin/dashboard'>Net T20</Link>
             </div>
             <div className='py-4 text-gray-300 font-semibold'>
                 <ul className=''>
                     <li className=''>
-                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                        <Link to='/admin/dashboard' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
                             <FaBuffer />
                             <span>Dashboard</span>
                         </Link>
                     </li>
                     <li className=''>
-                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                        <Link to='/admin/balance' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
                             <FaMoneyCheck />
                             <span>Balance</span>
                         </Link>
                     </li>
                     <li className=''>
-                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                        <Link to='/admin/bet-panel' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
                             <FaGamepad />
-                            <span>Betting</span>
+                            <span>Bet Panel</span>
                         </Link>
                     </li>
                     <li className=''>                        
@@ -124,7 +124,7 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li className=''>
-                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                        <Link to='/admin/settings' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
                             <FaCog />
                             <span>Settings</span>
                         </Link>
