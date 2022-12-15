@@ -18,7 +18,7 @@ const CollapsItem = ({ title, items ,icon}) => {
                     {items.map((item, index) => {
                         return (
                             <li key={index}>
-                                <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                                <Link to={item.link} className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
                                     <FaRegCircle />
                                     <span>{item.title}</span>
                                 </Link>

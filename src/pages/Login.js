@@ -1,29 +1,50 @@
 import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from '../util/axios';
 
 const Login = () => {
-    const [error, setError] = useState();
-
     const email = useRef();
     const password = useRef();
+
+    const [error, setError] = useState(null);
+
+    const loginSubmit = async (e) => {
+        e.preventDefault();
+        console.log('email=',email.current.value, 'pass', password.current.value);
+        try {
+            const { data } = await axios.post("http://localhost:5000/api/login", {email:email.current.value, password:password.current.value});
+            console.log(data);
+            localStorage.setItem("token", data);
+            window.location = "/";
+        } catch (error) {
+            console.log(error);
+            if (error.response && error.response.status === 400) {
+                setError(error.response.data);
+            }
+        }
+    };
+
+
 
     return (
         <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-100 h-screen">
             <div className="w-full max-w-md space-y-8">
                 <div>
-                    <img className="mx-auto h-12 w-auto rounded-full" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
+                    <Link to='/'>
+                        <img className="mx-auto h-12 w-auto rounded-full" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
+                    </Link>
                     <h2 className="mt- text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
                     <p className="mt-2 text-center text-sm text-gray-600">
                         Or
                         <Link to="/register" className="font-medium text-indigo-600 hover:text-indigo-500"> Register Now !</Link>
                     </p>
                 </div>
-                <form className="mt-8 space-y-6" method="POST">
+                <form className="mt-8 space-y-6" method="POST" onSubmit={loginSubmit}>
                     <input type="hidden" name="remember" value="true" />
                     <div className="-space-y-px rounded-md shadow-sm">
                         <div className="py-2">
                             <label htmlFor="email-address" className="sr-only">Email </label>
-                            <input id="email-address" name="email" ref={email} type="email" autoComplete="email" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address" />
+                            <input id="email-address" name="email" ref={email} type="text" autoComplete="email" required className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email or username" />
                         </div>
                         <div>
                             <label htmlFor="password" className="sr-only">Password</label>

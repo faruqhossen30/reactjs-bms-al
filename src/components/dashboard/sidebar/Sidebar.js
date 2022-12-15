@@ -41,17 +41,22 @@ const Sidebar = () => {
                             {
                                 'id':1,
                                 'title':'Match',
-                                'link':'/Create',
+                                'link':'/admin/Create',
                             },
                             {
                                 'id':2,
                                 'title':'Question',
-                                'link':'/Create',
+                                'link':'/admin/Create',
                             },
                             {
                                 'id':3,
                                 'title':'Option',
-                                'link':'/Create',
+                                'link':'/admin/Create',
+                            },
+                            {
+                                'id':4,
+                                'title':'Flags',
+                                'link':'/admin/flats',
                             }
                         ]} />
                     </li>
@@ -62,7 +67,7 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li className=''>
-                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                        <Link to='/admin/deposits' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
                             <FaCommentDollar />
                             <span>Deposite</span>
                         </Link>

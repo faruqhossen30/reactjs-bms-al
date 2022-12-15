@@ -12,27 +12,45 @@ import Balance from './pages/admin/Balance';
 import PageNotFound from './components/PageNotFound';
 import BetPanel from './pages/admin/BetPanel';
 import Settings from './pages/admin/Settings';
+import Flag from './pages/admin/Flag';
+import Deposit from './pages/admin/Deposit';
+import AuthContext from './contexts/authContext';
+import setAuthToken from './util/setAuthToken';
+import jwtDecode from 'jwt-decode';
+
+let user;
+if (localStorage.token) {
+    const jwt = localStorage.getItem("token");
+    setAuthToken(jwt);
+    user = jwtDecode(jwt);
+}
+
 
 function App() {
+  console.log('user',user);
   return (
-    <BrowserRouter>
+    <AuthContext.Provider value={user}>
+      <BrowserRouter>
 
-      {/* Frontend routes */}
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+        {/* Frontend routes */}
+        <Routes>
+          <Route path="*" element={<PageNotFound />} />
+          <Route path="/" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
 
-      {/* Dashboard */}
-      <Routes>
-        <Route path='admin/dashboard' element={<Dashboard />} />
-        <Route path='admin/balance' element={<Balance />} />
-        <Route path='admin/bet-panel' element={<BetPanel />} />
-        <Route path='admin/settings' element={<Settings />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </BrowserRouter>
+        {/* Dashboard */}
+        <Routes>
+          <Route path='admin/dashboard' element={<Dashboard />} />
+          <Route path='admin/balance' element={<Balance />} />
+          <Route path='admin/bet-panel' element={<BetPanel />} />
+          <Route path='admin/deposits' element={<Deposit />} />
+          <Route path='admin/settings' element={<Settings />} />
+          <Route path='admin/flats' element={<Flag />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthContext.Provider>
   );
 }
 
