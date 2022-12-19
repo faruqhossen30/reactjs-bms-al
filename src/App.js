@@ -17,24 +17,25 @@ import Deposit from './pages/admin/Deposit';
 import AuthContext from './contexts/authContext';
 import setAuthToken from './util/setAuthToken';
 import jwtDecode from 'jwt-decode';
+import Game from './pages/admin/Game';
+import AdminAuth from './routes/AdminAuth';
 
 let user;
 if (localStorage.token) {
-    const jwt = localStorage.getItem("token");
-    setAuthToken(jwt);
-    user = jwtDecode(jwt);
+  const jwt = localStorage.getItem("token");
+  setAuthToken(jwt);
+  user = jwtDecode(jwt);
 }
 
 
 function App() {
-  console.log('user',user);
   return (
     <AuthContext.Provider value={user}>
       <BrowserRouter>
 
         {/* Frontend routes */}
         <Routes>
-          <Route path="*" element={<PageNotFound />} />
+          {/* <Route path="*" element={<PageNotFound />} /> */}
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -42,12 +43,15 @@ function App() {
 
         {/* Dashboard */}
         <Routes>
-          <Route path='admin/dashboard' element={<Dashboard />} />
-          <Route path='admin/balance' element={<Balance />} />
-          <Route path='admin/bet-panel' element={<BetPanel />} />
-          <Route path='admin/deposits' element={<Deposit />} />
-          <Route path='admin/settings' element={<Settings />} />
-          <Route path='admin/flats' element={<Flag />} />
+          <Route element={<AdminAuth/>}>
+            <Route path='admin/dashboard' element={<Dashboard />} />
+            <Route path='admin/balance' element={<Balance />} />
+            <Route path='admin/bet-panel' element={<BetPanel />} />
+            <Route path='admin/deposits' element={<Deposit />} />
+            <Route path='admin/settings' element={<Settings />} />
+            <Route path='admin/flats' element={<Flag />} />
+            <Route path='admin/games' element={<Game />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </AuthContext.Provider>

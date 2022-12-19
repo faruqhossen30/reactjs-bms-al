@@ -57,6 +57,11 @@ const Sidebar = () => {
                                 'id':4,
                                 'title':'Flags',
                                 'link':'/admin/flats',
+                            },
+                            {
+                                'id':5,
+                                'title':'Games',
+                                'link':'/admin/games',
                             }
                         ]} />
                     </li>
