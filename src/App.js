@@ -13,22 +13,26 @@ import PageNotFound from './components/PageNotFound';
 import BetPanel from './pages/admin/BetPanel';
 import Settings from './pages/admin/Settings';
 import Flag from './pages/admin/Flag';
-import Deposit from './pages/admin/Deposit';
 import AuthContext from './contexts/authContext';
 import setAuthToken from './util/setAuthToken';
 import jwtDecode from 'jwt-decode';
 import Game from './pages/admin/Game';
 import AdminAuth from './routes/AdminAuth';
+import UserAuth from './routes/UserAuth';
+import Profile from './pages/user/Profile';
+import DepositForm from './pages/user/DepositForm';
+import Deposit from './pages/admin/Deposit';
 
 let user;
 if (localStorage.token) {
   const jwt = localStorage.getItem("token");
   setAuthToken(jwt);
-  user = jwtDecode(jwt);
+  user = jwtDecode(jwt).user;
 }
 
 
 function App() {
+  console.log(user);
   return (
     <AuthContext.Provider value={user}>
       <BrowserRouter>
@@ -39,11 +43,16 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          
+          <Route element={<UserAuth />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/deposit" element={<DepositForm />} />
+          </Route>
         </Routes>
 
         {/* Dashboard */}
         <Routes>
-          <Route element={<AdminAuth/>}>
+          <Route element={<AdminAuth />}>
             <Route path='admin/dashboard' element={<Dashboard />} />
             <Route path='admin/balance' element={<Balance />} />
             <Route path='admin/bet-panel' element={<BetPanel />} />

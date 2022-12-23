@@ -1,10 +1,33 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2';
+import cogoToast from 'cogo-toast';
+import withReactContent from 'sweetalert2-react-content';
 import AuthContext from '../../contexts/authContext'
 
 const Header = () => {
   const user = useContext(AuthContext);
+  const MySwal = withReactContent(Swal)
   // console.log('header ', user);
+  const logoutHandaller = () => {
+    MySwal.fire({
+      // title: 'Are you want to Logout ?',
+      text: "Are you want to Logout ?",
+      icon: 'warning',
+      width: '25em',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Logout',
+      customClass: 'swal2-popup'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("token");
+        window.location = "/";
+      }
+    })
+  }
+
   return (
     <header className='flex items-center justify-between px-2 bg-white shadow-md py-2'>
       <div>
@@ -12,17 +35,26 @@ const Header = () => {
       </div>
       <div className=' space-x-1'>
         {
-          user
+          user && user.isUser
             ? (
               <>
-              <div className='hidden lg:block space-x-2'>
-                <Link to='/register' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Wallet</Link>
-                <Link to='/register' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Statement</Link>
-                <Link to='/register' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Deposit</Link>
-                <Link to='/register' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Logout</Link>
-                <span className='text-purple-800 font-bold'>$500</span>
-              </div>
-              <span className='lg:hidden text-purple-800 font-bold '>$500</span>
+                <div className='hidden lg:block space-x-2'>
+                  <Link to='/profile' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Profile</Link>
+                  <Link to='/register' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Statement</Link>
+                  <Link to='/deposit' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Deposit</Link>
+                  <Link to='/register' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1' onClick={logoutHandaller}>Logout</Link>
+                  <span className='text-purple-800 font-bold'>৳{user.balance}</span>
+                </div>
+                <span className='lg:hidden text-purple-800 font-bold '>৳{user.balance}</span>
+              </>
+            )
+            :user && user.isAdmin 
+            ? (
+              <>
+                <div className='hidden lg:block space-x-2'>
+                  <Link to='/admin/dashboard' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Admin Panel</Link>
+                  <Link to='/register' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1' onClick={logoutHandaller}>Logout</Link>
+                </div>
               </>
             )
             : (

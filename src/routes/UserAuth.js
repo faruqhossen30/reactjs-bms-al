@@ -5,9 +5,9 @@ import AuthContext from '../contexts/authContext'
 const UserAuth = () => {
   const user = useContext(AuthContext);
   return (
-    user
+    user && user.isUser
     ?<Outlet/>
-    :<Navigate to='/login' />
+    :<Navigate to='/login' replace />
   )
 }
 

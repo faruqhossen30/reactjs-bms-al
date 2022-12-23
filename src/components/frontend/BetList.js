@@ -1,7 +1,7 @@
 import { Disclosure } from '@headlessui/react';
 import { Accordion, AccordionBody, AccordionHeader } from '@material-tailwind/react'
 import React, { useState } from 'react'
-import { FaCalendar, FaCalendarAlt } from 'react-icons/fa';
+import { FaCalendar, FaCalendarAlt, FaClock, FaRegCalendarAlt, FaRegClock } from 'react-icons/fa';
 import InputInnerLabel from './form/InputInnerLabel';
 import Sidebar from './Sidebar';
 
@@ -52,8 +52,8 @@ const BetList = () => {
                 </a>
             </div> */}
 
-            <Disclosure as='div' className='shadow-md p-2 mb-1 border border-purple-300 text-sm'>
-                <Disclosure.Button as='div' className="cursor-pointer">
+            <Disclosure as='div' className='shadow-md mb-1 border border-purple-300 text-sm'>
+                <Disclosure.Button as='div' className="cursor-pointer p-2">
                     <div className='flex items-center justify-between space-x-2 w-full'>
                         <div className='flex items-center space-x-1'>
                             <img src="https://flagcdn.com/w320/bd.png" className='h-8 w-8 object-contain' alt="" />
@@ -68,14 +68,46 @@ const BetList = () => {
                         </div>
                     </div>
                     <div className='text-center py-1 flex justify-center font-normal text-purple-800'>
-                        <span>First ODI-12 </span>
-                        <span className='flex items-center text-sm space-x-2'> -<FaCalendarAlt/> Decenmber 2022 12:00 PM</span>
+                        <span className='px-1'>First ODI-12 </span>
+                        <span className='flex items-center text-sm space-x-1'> <FaRegCalendarAlt /> <span> Decenmber 2022</span> <FaRegClock /> 12:00 PM</span>
+                    </div>
+                    <div className='text-center'>
+                        <span className='px-3 bg-purple-800 text-white rounded-full text-xs'>Bangladesh option to bat</span>
                     </div>
                 </Disclosure.Button>
 
                 <Disclosure.Panel className="">
-                    If you're unhappy with your purchase for any reason, email us
-                    within 90 days and we'll refund you in full, no questions asked.
+                    <div>
+                        <div className="text-white bg-purple-800 border px-2 py-1">
+                            <h4 className="text-white font-bold">Who win the match</h4>
+                        </div>
+                        <div className="grid grid-cols-4">
+                            <div className="col-span-2 border border-gray-300 flex justify-between m-1">
+                                <span className="font-bold p-1">Bangladesh</span>
+                                <span className="bg-gray-300 font-bold p-1 px-4">2.50</span>
+                            </div>
+                            <div className="col-span-2 border border-gray-300 flex justify-between m-1">
+                                <span className="font-bold p-1">Bangladesh</span>
+                                <span className="bg-gray-300 font-bold p-1 px-4">2.50</span>
+                            </div>
+                            <div className="col-span-2 border border-gray-300 flex justify-between m-1">
+                                <span className="font-bold p-1">Bangladesh</span>
+                                <span className="bg-gray-300 font-bold p-1 px-4">2.50</span>
+                            </div>
+                            <div className="col-span-2 border border-gray-300 flex justify-between m-1">
+                                <span className="font-bold p-1">Bangladesh</span>
+                                <span className="bg-gray-300 font-bold p-1 px-4">2.50</span>
+                            </div>
+                            <div className="col-span-2 border border-gray-300 flex justify-between m-1">
+                                <span className="font-bold p-1">Bangladesh</span>
+                                <span className="bg-gray-300 font-bold p-1 px-4">2.50</span>
+                            </div>
+                            <div className="col-span-2 border border-gray-300 flex justify-between m-1">
+                                <span className="font-bold p-1">Bangladesh</span>
+                                <span className="bg-gray-300 font-bold p-1 px-4">2.50</span>
+                            </div>
+                        </div>
+                    </div>
                 </Disclosure.Panel>
             </Disclosure>
 
