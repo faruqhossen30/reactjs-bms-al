@@ -22,6 +22,7 @@ import UserAuth from './routes/UserAuth';
 import Profile from './pages/user/Profile';
 import DepositForm from './pages/user/DepositForm';
 import Deposit from './pages/admin/Deposit';
+import DepositConfirm from './components/dashboard/deposit/DepositConfirm';
 
 let user;
 if (localStorage.token) {
@@ -57,6 +58,7 @@ function App() {
             <Route path='admin/balance' element={<Balance />} />
             <Route path='admin/bet-panel' element={<BetPanel />} />
             <Route path='admin/deposits' element={<Deposit />} />
+            <Route path='admin/deposit/:id' element={<DepositConfirm />} />
             <Route path='admin/settings' element={<Settings />} />
             <Route path='admin/flats' element={<Flag />} />
             <Route path='admin/games' element={<Game />} />
