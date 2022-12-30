@@ -10,7 +10,7 @@ import DashboardRoute from './routes/DashboardRoute';
 import DashboardLayout from './components/layouts/DashboardLayout';
 import Balance from './pages/admin/Balance';
 import PageNotFound from './components/PageNotFound';
-import BetPanel from './pages/admin/BetPanel';
+import BetPanel from './pages/admin/bet/BetPanel';
 import Settings from './pages/admin/Settings';
 import Flag from './pages/admin/Flag';
 import AuthContext from './contexts/authContext';
@@ -23,6 +23,9 @@ import Profile from './pages/user/Profile';
 import DepositForm from './pages/user/DepositForm';
 import Deposit from './pages/admin/Deposit';
 import DepositConfirm from './components/dashboard/deposit/DepositConfirm';
+import Widthdraw from './pages/admin/Widthdraw';
+import WidthdrawForm from './pages/user/WidthdrawForm';
+import BetCreate from './pages/admin/bet/BetCreate';
 
 let user;
 if (localStorage.token) {
@@ -48,6 +51,7 @@ function App() {
           <Route element={<UserAuth />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/deposit" element={<DepositForm />} />
+            <Route path="/widthdraw" element={<WidthdrawForm />} />
           </Route>
         </Routes>
 
@@ -56,9 +60,12 @@ function App() {
           <Route element={<AdminAuth />}>
             <Route path='admin/dashboard' element={<Dashboard />} />
             <Route path='admin/balance' element={<Balance />} />
+            {/* Bet */}
             <Route path='admin/bet-panel' element={<BetPanel />} />
+            <Route path='admin/bet/create' element={<BetCreate />} />
             <Route path='admin/deposits' element={<Deposit />} />
             <Route path='admin/deposit/:id' element={<DepositConfirm />} />
+            <Route path='admin/widthdraws' element={<Widthdraw />} />
             <Route path='admin/settings' element={<Settings />} />
             <Route path='admin/flats' element={<Flag />} />
             <Route path='admin/games' element={<Game />} />

@@ -79,7 +79,7 @@ const Deposit = () => {
                 return (
                   <tr className='p-1 text-sm' key={index}>
                     <td className="p-2 border border-slate-300 text-center">{index + 1}</td>
-                    <td className="p-2 border border-slate-300">{deposit.user.name}</td>
+                    <td className="p-2 border border-slate-300">{deposit.user?.name}</td>
                     <td className="p-2 border border-slate-300">{deposit.amount}</td>
                     <td className="p-2 border border-slate-300">{deposit.method}</td>
                     <td className="p-2 border border-slate-300">{deposit.fromAccount}</td>

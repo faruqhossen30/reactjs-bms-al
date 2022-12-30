@@ -84,7 +84,7 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li className=''>
-                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                        <Link to='/admin/widthdraws' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
                             <FaRegMoneyBillAlt />
                             <span>Withdraw</span>
                         </Link>
