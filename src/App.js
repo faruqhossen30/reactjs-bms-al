@@ -26,6 +26,13 @@ import DepositConfirm from './components/dashboard/deposit/DepositConfirm';
 import Widthdraw from './pages/admin/Widthdraw';
 import WidthdrawForm from './pages/user/WidthdrawForm';
 import BetCreate from './pages/admin/bet/BetCreate';
+import BetQuestionCreate from './pages/admin/bet/BetQuestionCreate';
+import UserList from './pages/admin/user/UserList';
+import UserDetails from './pages/admin/user/UserDetails';
+import UserEdit from './pages/admin/user/UserEdit';
+import ClubList from './pages/admin/club/ClubList';
+import ClubCreate from './pages/admin/club/ClubCreate';
+import ClubEdit from './pages/admin/club/ClubEdit';
 
 let user;
 if (localStorage.token) {
@@ -63,6 +70,16 @@ function App() {
             {/* Bet */}
             <Route path='admin/bet-panel' element={<BetPanel />} />
             <Route path='admin/bet/create' element={<BetCreate />} />
+            <Route path='admin/bet/qusetion/create' element={<BetQuestionCreate />} />
+            {/* User */}
+            <Route path='admin/users' element={<UserList />} />
+            <Route path='admin/user/:id' element={<UserDetails />} />
+            <Route path='admin/user/edit/:id' element={<UserEdit />} />
+            {/* Club */}
+            <Route path='admin/clubs' element={<ClubList />} />
+            <Route path='admin/club/create' element={<ClubCreate />} />
+            <Route path='admin/club/edit/:id' element={<ClubEdit />} />
+
             <Route path='admin/deposits' element={<Deposit />} />
             <Route path='admin/deposit/:id' element={<DepositConfirm />} />
             <Route path='admin/widthdraws' element={<Widthdraw />} />

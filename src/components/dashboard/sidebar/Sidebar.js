@@ -90,7 +90,7 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li className=''>
-                        <Link to='/' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                        <Link to='/admin/clubs' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
                             <FaCubes />
                             <span>Clubs</span>
                         </Link>
@@ -100,7 +100,7 @@ const Sidebar = () => {
                             {
                                 'id':1,
                                 'title':'All Users',
-                                'link':'/Create',
+                                'link':'/admin/users',
                             },
                             {
                                 'id':2,

@@ -1,6 +1,6 @@
 import { Disclosure } from '@headlessui/react'
 import React, { useEffect, useState } from 'react'
-import { FaEdit, FaEye, FaGamepad, FaPlusCircle, FaRegCalendarAlt, FaRegClock, FaTrash } from 'react-icons/fa'
+import { FaEdit, FaEye, FaGamepad, FaPlus, FaPlusCircle, FaRegCalendarAlt, FaRegClock, FaTrash } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Breadcrumb from '../../../components/dashboard/Breadcrumb'
 import DashboardLayout from '../../../components/layouts/DashboardLayout'
@@ -48,9 +48,9 @@ const BetPanel = () => {
                 </div>
               </div>
               <div className='space-x-2'>
-                <Link class="inline-flex items-center px-2 py-1 bg-red-600 hover:bg-red-700 text-white text-sm font-medium">
-                  <FaTrash />
-                  Delete
+                <Link to='/admin/bet/qusetion/create' class="inline-flex items-center px-2 py-1 bg-purple-800 hover:bg-red-700 text-white text-sm font-medium">
+                  <FaPlus />
+                  Add Question
                 </Link>
                 <Link class="inline-flex items-center px-2 py-1 bg-red-600 hover:bg-red-700 text-white text-sm font-medium">
                   <FaTrash />
@@ -147,19 +147,7 @@ const BetPanel = () => {
                       <td className="border border-slate-300 space-x-1 text-right">
                         <Link class="inline-flex items-center px-2 py-1 bg-green-600 hover:bg-red-700 text-white text-sm font-medium rounded">
                           <FaTrash />
-                          Delete
-                        </Link>
-                        <Link class="inline-flex items-center px-2 py-1 bg-green-600 hover:bg-red-700 text-white text-sm font-medium rounded">
-                          <FaTrash />
-                          Delete
-                        </Link>
-                        <Link class="inline-flex items-center px-2 py-1 bg-green-600 hover:bg-red-700 text-white text-sm font-medium rounded">
-                          <FaTrash />
-                          Delete
-                        </Link>
-                        <Link class="inline-flex items-center px-2 py-1 bg-green-600 hover:bg-red-700 text-white text-sm font-medium rounded">
-                          <FaTrash />
-                          Delete
+                          Restart
                         </Link>
                       </td>
                     </tr>
