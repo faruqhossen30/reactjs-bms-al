@@ -6,6 +6,7 @@ import { FaCheckCircle, FaCross, FaEdit, FaList, FaPlusCircle, FaRegTimesCircle,
 import { useForm } from 'react-hook-form'
 import axios from '../../../util/axios'
 import { Link, useNavigate } from 'react-router-dom'
+import Settings from '../Settings';
 
 const PaymentGateway = () => {
     const navigate = useNavigate();
@@ -64,8 +65,7 @@ const PaymentGateway = () => {
     }, []);
     return (
         <>
-            <Tab.Panel>
-                {/* <PaymentGateway/> */}
+            <Settings>
                 <div className='border border-b-2 p-4'>
                     <h4>Payent Gateway</h4>
                     <span className='text-xs text-gray-500'>PaymentGateway</span>
@@ -114,7 +114,7 @@ const PaymentGateway = () => {
                                                         {/* <Link to={`/admin/deposit/${item._id}`} className="inline-flex items-center justify-center w-5 h-5 text-green-700 transition-colors duration-150 rounded-lg focus:shadow-outline hover:bg-pink-800">
                                                             <FaEdit />
                                                         </Link> */}
-                                                        <button onClick={()=>deleteHandaller(item._id)} className="inline-flex items-center justify-center w-5 h-5 text-red-700 transition-colors duration-150 rounded-lg focus:shadow-outline hover:bg-white-800 ">
+                                                        <button onClick={() => deleteHandaller(item._id)} className="inline-flex items-center justify-center w-5 h-5 text-red-700 transition-colors duration-150 rounded-lg focus:shadow-outline hover:bg-white-800 ">
                                                             <FaTrash />
                                                         </button>
                                                     </td>
@@ -190,7 +190,7 @@ const PaymentGateway = () => {
                         </Tab.Panel>
                     </Tab.Panels>
                 </Tab.Group>
-            </Tab.Panel>
+            </Settings>
         </>
     )
 }

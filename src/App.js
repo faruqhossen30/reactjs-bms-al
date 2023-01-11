@@ -10,7 +10,7 @@ import DashboardRoute from './routes/DashboardRoute';
 import DashboardLayout from './components/layouts/DashboardLayout';
 import Balance from './pages/admin/Balance';
 import PageNotFound from './components/PageNotFound';
-import BetPanel from './pages/admin/bet/BetPanel';
+import MatchPanel from './pages/admin/match/MatchPanel';
 import Settings from './pages/admin/Settings';
 import Flag from './pages/admin/Flag';
 import AuthContext from './contexts/authContext';
@@ -25,14 +25,20 @@ import Deposit from './pages/admin/Deposit';
 import DepositConfirm from './components/dashboard/deposit/DepositConfirm';
 import Widthdraw from './pages/admin/Widthdraw';
 import WidthdrawForm from './pages/user/WidthdrawForm';
-import BetCreate from './pages/admin/bet/BetCreate';
-import BetQuestionCreate from './pages/admin/bet/BetQuestionCreate';
+import MatchCreate from './pages/admin/match/MatchCreate';
+import BetQuestionCreate from './pages/admin/match/BetQuestionCreate';
 import UserList from './pages/admin/user/UserList';
 import UserDetails from './pages/admin/user/UserDetails';
 import UserEdit from './pages/admin/user/UserEdit';
 import ClubList from './pages/admin/club/ClubList';
 import ClubCreate from './pages/admin/club/ClubCreate';
 import ClubEdit from './pages/admin/club/ClubEdit';
+import HeaderNotice from './pages/admin/settings/HeaderNotice';
+import FooterNotice from './pages/admin/settings/FooterNotice';
+import PaymentGateway from './pages/admin/settings/PaymentGateway';
+import MatchEdit from './pages/admin/match/MatchEdit';
+import MatchQuestion from './pages/admin/match/question/MatchQuestion';
+import MatchQuestionEdit from './pages/admin/match/question/MatchQuestionEdit';
 
 let user;
 if (localStorage.token) {
@@ -68,9 +74,12 @@ function App() {
             <Route path='admin/dashboard' element={<Dashboard />} />
             <Route path='admin/balance' element={<Balance />} />
             {/* Bet */}
-            <Route path='admin/bet-panel' element={<BetPanel />} />
-            <Route path='admin/bet/create' element={<BetCreate />} />
-            <Route path='admin/bet/qusetion/create' element={<BetQuestionCreate />} />
+            <Route path='admin/match-panel' element={<MatchPanel />} />
+            <Route path='admin/match/create' element={<MatchCreate />} />
+            <Route path='admin/match/edit/:id' element={<MatchEdit />} />
+            {/* <Route path='admin/bet/:id/qusetion/create' element={<BetQuestionCreate />} /> */}
+            <Route path='admin/match/:id/qusetion/create' element={<MatchQuestion />} />
+            <Route path='admin/match-question/:id/edit' element={<MatchQuestionEdit />} />
             {/* User */}
             <Route path='admin/users' element={<UserList />} />
             <Route path='admin/user/:id' element={<UserDetails />} />
@@ -83,9 +92,13 @@ function App() {
             <Route path='admin/deposits' element={<Deposit />} />
             <Route path='admin/deposit/:id' element={<DepositConfirm />} />
             <Route path='admin/widthdraws' element={<Widthdraw />} />
-            <Route path='admin/settings' element={<Settings />} />
             <Route path='admin/flats' element={<Flag />} />
             <Route path='admin/games' element={<Game />} />
+            {/* Settings */}
+            <Route path='admin/settings' element={<Settings />} />
+            <Route path='admin/setting/header-notice' element={<HeaderNotice />} />
+            <Route path='admin/setting/footer-notice' element={<FooterNotice />} />
+            <Route path='admin/setting/payment-gateway' element={<PaymentGateway />} />
           </Route>
         </Routes>
       </BrowserRouter>

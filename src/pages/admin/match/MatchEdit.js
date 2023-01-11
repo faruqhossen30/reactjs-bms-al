@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import Breadcrumb from '../../../components/dashboard/Breadcrumb'
 import DashboardLayout from '../../../components/layouts/DashboardLayout'
 import axios from '../../../util/axios'
 import Select from 'react-select'
+import moment from 'moment';
 
-const BetCreate = () => {
+const MatchEdit = () => {
     const navigate = useNavigate();
+    const {id} = useParams();
     const [erros, setErrors] = useState([]);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors },setValue } = useForm();
+    // console.log('prams id',id);
 
     const onSubmit = data => {
         console.log(data)
-        axios.post('http://localhost:5000/api/matches',
+        axios.post(`${process.env.REACT_APP_API_URL}/match/update/${id}`,
             data
         )
             .then((res) => {
                 console.log(res);
-                navigate('/admin/bet-panel')
+                // navigate('/admin/bet-panel')
 
             })
             .catch((err) => {
@@ -31,13 +34,31 @@ const BetCreate = () => {
 
     const [allcountry, setAllCountry] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/allteams`)
+        axios.get(`${process.env.REACT_APP_API_URL}/allteams`)
             .then((res) => {
                 setAllCountry(res.data)
                 // console.log(res);
             })
             .catch(err => console.log(err))
+
+            getMatch();
     }, []);
+
+    const getMatch = () => {
+        axios.get(`${process.env.REACT_APP_API_URL}/match/${id}`)
+            .then((res) => {
+                console.log('getmatch',res);
+                setValue('teamOne', res.data.teamOne);
+                setValue('teamTwo', res.data.teamTwo);
+                setValue('teamOneFlag', res.data.teamOneFlag);
+                setValue('teamTwoFlag', res.data.teamTwoFlag);
+                setValue('title', res.data.title);
+                setValue('date',  moment(res.data.date).format("YYYY-MM-DDTkk:mm"));
+                setValue('status',  res.data.status);
+                setValue('autoQuestion',  res.data.autoQuestion ? '1':0);
+            })
+            .catch(err => console.log(err))
+    }
     return (
         <DashboardLayout>
             <Breadcrumb>
@@ -102,25 +123,18 @@ const BetCreate = () => {
                                 </select>
                             </div>
                             <div className="col-span-6">
-                                <label htmlFor="betStatement" className="block text-sm font-medium text-gray-700">Bet Statement </label>
+                                <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title</label>
                                 <input
-                                    {...register("betStatement", { required: 'Team Two name is required.' })}
-                                    type="text" name="betStatement" id="betStatement" className="border w-full py-1 px-2 rounded-md focus:outline-none text-sm" />
+                                    {...register("title", { required: 'Title is required.' })}
+                                    type="text" name="title" id="title" className="border w-full py-1 px-2 rounded-md focus:outline-none text-sm" />
                                 <span className='text-red-600 text-sm'>{errors.teamTwo?.message}</span>
                             </div>
 
                             <div className="col-span-6 sm:col-span-3 ">
-                                <label htmlFor="date" className="block text-sm font-medium text-gray-700"> Date </label>
+                                <label htmlFor="date" className="block text-sm font-medium text-gray-700"> Date update </label>
                                 <input
                                     {...register("date", { required: 'Date is required.' })}
-                                    type="date" name="date" id="date" className="border w-full py-1 px-2 rounded-md focus:outline-none text-sm" />
-                                <span className='text-red-600 text-sm'>{errors.teamTwo?.message}</span>
-                            </div>
-                            <div className="col-span-6 sm:col-span-3 ">
-                                <label htmlFor="time" className="block text-sm font-medium text-gray-700">Time</label>
-                                <input
-                                    {...register("time", { required: 'time is required.' })}
-                                    type="time" name="time" id="time" className="border w-full py-1 px-2 rounded-md focus:outline-none text-sm" />
+                                    type="datetime-local" name="date" id="date"  className="border w-full py-1 px-2 rounded-md focus:outline-none text-sm" />
                                 <span className='text-red-600 text-sm'>{errors.teamTwo?.message}</span>
                             </div>
 
@@ -156,4 +170,4 @@ const BetCreate = () => {
     )
 }
 
-export default BetCreate
+export default MatchEdit

@@ -31,9 +31,9 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li className=''>
-                        <Link to='/admin/bet-panel' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
+                        <Link to='/admin/match-panel' className='w-full py-2 flex items-center space-x-2 pl-2 hover:bg-gray-900'>
                             <FaGamepad />
-                            <span>Bet Panel</span>
+                            <span>Match Panel</span>
                         </Link>
                     </li>
                     <li className=''>                        

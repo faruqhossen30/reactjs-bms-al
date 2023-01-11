@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import Breadcrumb from '../../../components/dashboard/Breadcrumb'
 import DashboardLayout from '../../../components/layouts/DashboardLayout'
 import axios from '../../../util/axios'
-import Select from 'react-select'
+// import Select from 'react-select'
 
 const UserEdit = () => {
     const navigate = useNavigate();

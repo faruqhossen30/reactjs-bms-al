@@ -13,20 +13,20 @@ import { FaPlusCircle, FaTrash } from 'react-icons/fa';
 //         rate: number,
 //     }
 // }
-let rendercount = 0;
 const BetQuestionCreate = () => {
     const navigate = useNavigate();
     const [erros, setErrors] = useState([]);
-    const { register, control, handleSubmit, formState: { errors } } = useForm({
-        defaultValues: {
-            option: [{ optionName: 'some', optionRate: 55,optionStatus:'live' }]
-        }
-    });
-    const { fields,append, prepend, remove } = useFieldArray({
+    const { register, control, handleSubmit, formState: { errors } } = useForm(
+        // {
+        //     defaultValues: {
+        //         option: [{ optionName: 'some', optionRate: 55, optionStatus: 'live' }]
+        //     }
+        // }
+    );
+    const { fields, append, prepend, remove } = useFieldArray({
+        control,
         name: 'option',
-        control
     });
-    rendercount++;
 
 
     const onSubmit = data => {
@@ -91,7 +91,7 @@ const BetQuestionCreate = () => {
                                 <button className='bg-green-600 p-1 mb-3 border shadow-md' type='button'>
                                     <div className='flex items-center space-x-1 text-gray-100'>
                                         <FaPlusCircle />
-                                        <span className=' text-sm font-semibold' onClick={()=>{append({optionName:'jamal', optionRate:12,optionStatus:'live'})}} >Append</span>
+                                        <span className=' text-sm font-semibold' onClick={() => { append({ optionName: 'jamal', optionRate: 12, optionStatus: 'live' }) }} >Append</span>
                                     </div>
                                 </button>
 
@@ -119,12 +119,12 @@ const BetQuestionCreate = () => {
                                                     </td>
                                                     <td className="p-2 border border-slate-300 text-center">
                                                         <input
-                                                           {...register(`option.${index}.optionRate`)}
-                                                            type="number" name="optionRate"  className="border w-full py-1 px-2 rounded-md focus:outline-none text-sm" />
+                                                            {...register(`option.${index}.optionRate`)}
+                                                            type="number" name="optionRate" className="border w-full py-1 px-2 rounded-md focus:outline-none text-sm" />
                                                     </td>
                                                     <td className="p-2 border border-slate-300 text-center">
                                                         <select
-                                                             {...register(`option.${index}.optionStatus`)}
+                                                            {...register(`option.${index}.optionStatus`)}
                                                             name="optionStatus" className='border w-full py-1 px-2 rounded-md focus:outline-none text-sm'>
                                                             <option value="upcommint">Upcomming</option>
                                                             <option value="live">Live</option>
