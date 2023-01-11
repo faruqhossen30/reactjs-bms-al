@@ -4,7 +4,7 @@ import { FaHome, FaList, FaMoneyBill, FaMoneyBillAlt, FaWallet } from 'react-ico
 
 const Footer = () => {
     return (
-        <footer className='grid grid-cols-5 border-t-2 text-sm text-purple-800 bg-red-100 inset-x-0 bottom-0 fixed pt-1'>
+        <footer className='md:hidden grid grid-cols-5 border-t-2 text-sm text-purple-800 bg-red-100 inset-x-0 bottom-0 fixed pt-1'>
             <div className='col-span-1 flex flex-col items-center'>
                 <FaHome />
                 <span>Home</span>
@@ -23,10 +23,8 @@ const Footer = () => {
             </div>
             <div className='col-span-1 flex flex-col items-center'>
                 <FaList />
-                <span>Account</span>
-                
+                <span>Account</span>                
             </div>
-
         </footer>
     )
 }

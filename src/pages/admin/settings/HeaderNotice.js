@@ -47,7 +47,7 @@ const HeaderNotice = () => {
                     </div>
                     <div className="px-4">
                         <label htmlFor="value" className="block text-sm font-medium text-gray-700 pb-1">Header Notice</label>
-                        <textarea {...register("value")} type="text" name="value" id="value" autoComplete="given-name" className="border w-full py-1 px-2 rounded-md focus:outline-none text-sm" ></textarea>
+                        <textarea rows="7" {...register("value")} type="text" name="value" id="value" autoComplete="given-name" className="border w-full py-1 px-2 rounded-md focus:outline-none text-sm" ></textarea>
                     </div>
 
                     <div className='px-4'>

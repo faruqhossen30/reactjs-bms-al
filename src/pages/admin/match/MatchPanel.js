@@ -13,7 +13,7 @@ const MatchPanel = () => {
   const [matches, setMatches] = useState([]);
   const MySwal = withReactContent(Swal);
   useEffect(() => {
-    axios.get('http://localhost:5000/api/matches')
+    axios.get(`${process.env.REACT_APP_API_URL}/matches`)
       .then((res) => {
         setMatches(res.data.docs)
         console.log('useeffect', res);

@@ -82,7 +82,7 @@ const MatchCreate = () => {
                                 <select
                                     {...register("teamOneFlag")}
                                     name="teamOneFlag" id='teamOneFlag' className='border w-full py-1 px-2 rounded-md focus:outline-none text-sm'>
-                                        <option value='' >Select</option>
+                                    <option value='' >Select</option>
                                     {
                                         allcountry.map((item, index) => {
                                             return <option value={item.flag} key={index}>{item.name}</option>
@@ -95,7 +95,7 @@ const MatchCreate = () => {
                                 <select
                                     {...register("teamTwoFlag")}
                                     name="teamTwoFlag" className='border w-full py-1 px-2 rounded-md focus:outline-none text-sm'>
-                                        <option value='' >Select</option>
+                                    <option value='' >Select</option>
                                     {
                                         allcountry.map((item, index) => {
                                             return <option value={item.flag} key={index}>{item.name}</option>
@@ -136,6 +136,14 @@ const MatchCreate = () => {
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                 </select>
+                            </div>
+
+                            <div className="col-span-6">
+                                <label htmlFor="note" className="block text-sm font-medium text-gray-700">Note</label>
+                                <input
+                                    {...register("note")}
+                                    type="text" name="note" id="note" className="border w-full py-1 px-2 rounded-md focus:outline-none text-sm" />
+                                <span className='text-red-600 text-sm'>{errors.teamTwo?.message}</span>
                             </div>
 
 
