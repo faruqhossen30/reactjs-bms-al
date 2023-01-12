@@ -29,7 +29,7 @@ const Header = () => {
   }
 
   return (
-    <header className='flex items-center justify-between px-2 bg-white shadow-md py-2'>
+    <header className='sticky top-0 flex items-center justify-between px-2 bg-white shadow-md py-2'>
       <div>
         <Link to='/'><img src="./logo.png" alt="" className='h-6' /></Link>
       </div>
@@ -40,8 +40,9 @@ const Header = () => {
               <>
                 <div className='hidden lg:block space-x-2'>
                   <Link to='/profile' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Profile</Link>
-                  <Link to='/register' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Statement</Link>
+                  <Link to='/statement' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Statement</Link>
                   <Link to='/deposit' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Deposit</Link>
+                  <Link to='/widthdraw' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1'>Widthdray</Link>
                   <Link to='/register' className=' font-normal text-sm border rounded-md text-purple-800 px-3 py-1' onClick={logoutHandaller}>Logout</Link>
                   <span className='text-purple-800 font-bold'>৳{user.balance}</span>
                 </div>

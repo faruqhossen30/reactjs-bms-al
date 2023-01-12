@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { FaAddressCard, FaMailBulk, FaMobileAlt, FaPhone, FaUser, FaUserPlus, FaUsers } from 'react-icons/fa'
+import { FaAddressCard, FaGamepad, FaMailBulk, FaMobileAlt, FaMoneyBillAlt, FaPhone, FaTrophy, FaUser, FaUserPlus, FaUsers } from 'react-icons/fa'
 import AppLayout from '../../components/layouts/AppLayout'
 import AuthContext from '../../contexts/authContext'
 
@@ -12,6 +12,36 @@ const Profile = () => {
                 {/* <div className='mx-auto'>
                     <FaUser className=''/>
                 </div> */}
+
+                <div className='flex justify-between border p-2 my-1 items-center shadow'>
+                    <div className='flex flex-col font-semibold'>
+                        <span>$500</span>
+                        <span>Balance</span>
+                    </div>
+                    <div>
+                        <span className='text-3xl'><FaMoneyBillAlt/></span>
+                    </div>
+                </div>
+                <div className='flex justify-between border p-2 my-1 items-center shadow'>
+                    <div className='flex flex-col font-semibold'>
+                        <span>100</span>
+                        <span>Total Bet</span>
+                    </div>
+                    <div>
+                        <span className='text-3xl'><FaGamepad/></span>
+                    </div>
+                </div>
+                <div className='flex justify-between border p-2 my-1 items-center shadow'>
+                    <div className='flex flex-col font-semibold'>
+                        <span>20</span>
+                        <span>Win</span>
+                    </div>
+                    <div>
+                        <span className='text-3xl'><FaTrophy/></span>
+                    </div>
+                </div>
+
+                {/* Stat Profile */}
                 <div className='divide-y divide-gray-200 border'>
                     <div className='flex items-center justify-start space-x-2 p-2'>
                         <FaAddressCard />

@@ -2,7 +2,7 @@ import React from 'react'
 import DashboardLayout from '../../components/layouts/DashboardLayout'
 // import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { Tab } from '@headlessui/react'
-import { FaBullhorn, FaCog, FaHome, FaIdCard, FaMoneyBill, FaSave } from 'react-icons/fa';
+import { FaBullhorn, FaCog, FaCommentsDollar, FaGamepad, FaHome, FaIdCard, FaMoneyBill, FaSave } from 'react-icons/fa';
 import NoticeComponent from '../../components/dashboard/settings/NoticeComponent';
 import PaymentGateway from '../../components/dashboard/settings/PaymentGateway';
 import FooterNotice from '../../components/dashboard/settings/FooterNotice';
@@ -29,6 +29,18 @@ const Settings = ({children}) => {
                         <Link to='/admin/setting/footer-notice' className="text-sm w-full cursor-pointer flex items-center p-1 space-x-2 hover:bg-gray-200 hover:text-gray-700">
                             <FaBullhorn />
                             <span>Footer Notice</span>
+                        </Link>
+                        <Link to='/admin/setting/widthdraw-limit' className="text-sm w-full cursor-pointer flex items-center p-1 space-x-2 hover:bg-gray-200 hover:text-gray-700">
+                            <FaBullhorn />
+                            <span>Widthdraw Limit</span>
+                        </Link>
+                        <Link to='/admin/setting/widthdraw-limit' className="text-sm w-full cursor-pointer flex items-center p-1 space-x-2 hover:bg-gray-200 hover:text-gray-700">
+                            <FaCommentsDollar />
+                            <span>Widthdraw Limit</span>
+                        </Link>
+                        <Link to='/admin/setting/bet-limit' className="text-sm w-full cursor-pointer flex items-center p-1 space-x-2 hover:bg-gray-200 hover:text-gray-700">
+                            <FaGamepad />
+                            <span>Bet Limit</span>
                         </Link>
                         <Link to='/admin/setting/payment-gateway' className="text-sm w-full cursor-pointer flex items-center p-1 space-x-2 hover:bg-gray-200 hover:text-gray-700">
                             <FaMoneyBill />

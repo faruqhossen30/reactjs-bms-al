@@ -39,6 +39,12 @@ import PaymentGateway from './pages/admin/settings/PaymentGateway';
 import MatchEdit from './pages/admin/match/MatchEdit';
 import MatchQuestion from './pages/admin/match/question/MatchQuestion';
 import MatchQuestionEdit from './pages/admin/match/question/MatchQuestionEdit';
+import Statement from './pages/user/Statement';
+import DepositList from './pages/user/DepositList';
+import WidthdrawList from './pages/user/WidthdrawList';
+import TransactionHistory from './pages/user/TransactionHistory';
+import WidthdrawLimit from './pages/admin/settings/WidthdrawLimit';
+import BetLimit from './pages/admin/settings/BetLimit';
 
 let user;
 if (localStorage.token) {
@@ -65,6 +71,11 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/deposit" element={<DepositForm />} />
             <Route path="/widthdraw" element={<WidthdrawForm />} />
+            {/* Statement */}
+            <Route path="/statement" element={<Statement />} />
+            <Route path="/deposit-list" element={<DepositList />} />
+            <Route path="/widthdraw-list" element={<WidthdrawList />} />
+            <Route path="/transaction-history" element={<TransactionHistory />} />
           </Route>
         </Routes>
 
@@ -99,6 +110,8 @@ function App() {
             <Route path='admin/setting/header-notice' element={<HeaderNotice />} />
             <Route path='admin/setting/footer-notice' element={<FooterNotice />} />
             <Route path='admin/setting/payment-gateway' element={<PaymentGateway />} />
+            <Route path='admin/setting/widthdraw-limit' element={<WidthdrawLimit />} />
+            <Route path='admin/setting/bet-limit' element={<BetLimit />} />
           </Route>
         </Routes>
       </BrowserRouter>

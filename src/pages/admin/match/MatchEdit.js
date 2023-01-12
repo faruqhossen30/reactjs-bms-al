@@ -56,6 +56,7 @@ const MatchEdit = () => {
                 setValue('date',  moment(res.data.date).format("YYYY-MM-DDTkk:mm"));
                 setValue('status',  res.data.status);
                 setValue('autoQuestion',  res.data.autoQuestion ? '1':0);
+                setValue('note',  res.data.note);
             })
             .catch(err => console.log(err))
     }
@@ -155,6 +156,14 @@ const MatchEdit = () => {
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                 </select>
+                            </div>
+
+                            <div className="col-span-6">
+                                <label htmlFor="note" className="block text-sm font-medium text-gray-700">Note</label>
+                                <input
+                                    {...register("note")}
+                                    type="text" name="note" id="note" className="border w-full py-1 px-2 rounded-md focus:outline-none text-sm" />
+                                <span className='text-red-600 text-sm'>{errors.teamTwo?.message}</span>
                             </div>
 
 

@@ -65,7 +65,7 @@ const DashboardLayout = ({children}) => {
               </div>
             </div>
           </nav>
-          <div className='p-4 mb-12'>
+          <div className='p-1 md:p-3 mb-12'>
             {children}
           </div>
           <footer className='absolute inset-x-0 bottom-0 bg-white shadow-inner p-2 text-center text-sm text-gray-600'>
